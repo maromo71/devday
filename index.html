@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>6º Fatec DevDay Mogi Mirim | Tecnologia & Engenharia</title>
+  <meta name="description" content="Hotsite oficial da 6ª edição do Fatec DevDay Mogi Mirim. Participe do maior evento acadêmico de tecnologia e engenharia da região em 17 de Outubro de 2026. Palestras de ponta e um Hackathon incrível.">
+  <meta name="keywords" content="Fatec, DevDay, Mogi Mirim, Tecnologia, Engenharia, ADS, Mecatrônica, Gestão Empresarial, Hackathon, Desenvolvimento de Software, Centro Paula Souza">
+  <meta name="author" content="Comissão Organizadora Fatec Mogi Mirim">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://devday.fatecmogimirim.edu.br/">
+  <meta property="og:title" content="6º Fatec DevDay Mogi Mirim | Tecnologia & Engenharia">
+  <meta property="og:description" content="Participe do maior evento acadêmico de tecnologia e engenharia da região em 17 de Outubro de 2026. Palestras de ponta e um Hackathon incrível.">
+  <meta property="og:image" content="img/hero-tech-bg.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="6º Fatec DevDay Mogi Mirim | Tecnologia & Engenharia">
+  <meta property="twitter:description" content="Participe do maior evento acadêmico de tecnologia e engenharia da região em 17 de Outubro de 2026. Palestras de ponta e um Hackathon incrível.">
+  <meta property="twitter:image" content="img/hero-tech-bg.png">
+
+  <!-- Theme early check to avoid flash -->
+  <script>
+    if (localStorage.getItem('color-theme') === 'light' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            cps: {
+              red: '#c20e1a',
+              redDark: '#8b0811',
+              redLight: '#ef4444',
+              dark: '#0a0a0c',
+              card: '#141418',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Custom JavaScript -->
+  <script src="js/app.js" defer></script>
+</head>
+<body class="bg-zinc-50 dark:bg-cps-dark text-zinc-800 dark:text-zinc-100 font-sans selection:bg-cps-red selection:text-white overflow-x-hidden transition-colors duration-300">
+
+  <!-- Header / Navbar Fixo -->
+  <header id="top-nav" class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo Fatec Mogi Mirim -->
+        <a href="#home" class="flex items-center group" aria-label="Voltar para a página inicial">
+          <img src="./assets/logo-fatec-mogimirim.png" alt="Logotipo Fatec Mogi Mirim" class="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105">
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8" aria-label="Navegação principal">
+          <a href="#home" class="nav-link text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white py-2">Início</a>
+          <a href="#programacao" class="nav-link text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white py-2">Programação</a>
+          <a href="#hackathon" class="nav-link text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white py-2">Hackathon</a>
+          <a href="#sobre" class="nav-link text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white py-2">Sobre</a>
+          <a href="#contato" class="nav-link text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white py-2">Local & Contato</a>
+          
+          <!-- Theme Toggle Button -->
+          <button id="theme-toggle" type="button" class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white focus:outline-none p-2 rounded-lg transition" aria-label="Alternar tema">
+            <i class="fa-solid fa-sun hidden dark:block text-base"></i>
+            <i class="fa-solid fa-moon block dark:hidden text-base"></i>
+          </button>
+        </nav>
+
+        <!-- Institutional Logo (Centro Paula Souza / Governo de SP) -->
+        <div class="hidden lg:flex items-center border-l border-zinc-300 dark:border-zinc-800 pl-4">
+          <img src="./assets/logo-cps-governo-sp.png" alt="Logotipo Centro Paula Souza e Governo do Estado de São Paulo" class="h-10 md:h-12 w-auto">
+        </div>
+
+        <!-- Mobile Menu Button & Mobile Theme Toggle -->
+        <div class="flex items-center space-x-2 md:hidden">
+          <button id="theme-toggle-mobile" type="button" class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white focus:outline-none p-2 rounded-lg transition" aria-label="Alternar tema">
+            <i class="fa-solid fa-sun hidden dark:block text-base"></i>
+            <i class="fa-solid fa-moon block dark:hidden text-base"></i>
+          </button>
+          
+          <button id="mobile-menu-btn" type="button" class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-cps-red p-2 rounded-md" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu de navegação">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-zinc-200 dark:border-zinc-800 bg-white/95 dark:bg-cps-dark/95 backdrop-blur-lg">
+      <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3 text-center">
+        <a href="#home" class="block px-3 py-3 rounded-md text-base font-medium text-zinc-650 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 transition">Início</a>
+        <a href="#programacao" class="block px-3 py-3 rounded-md text-base font-medium text-zinc-650 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 transition">Programação</a>
+        <a href="#hackathon" class="block px-3 py-3 rounded-md text-base font-medium text-zinc-650 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 transition">Hackathon</a>
+        <a href="#sobre" class="block px-3 py-3 rounded-md text-base font-medium text-zinc-650 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 transition">Sobre</a>
+        <a href="#contato" class="block px-3 py-3 rounded-md text-base font-medium text-zinc-650 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 transition">Local & Contato</a>
+        <!-- Logo mobile government alignment -->
+        <div class="flex justify-center pt-4 border-t border-zinc-200 dark:border-zinc-800 mt-2">
+          <img src="./assets/logo-cps-governo-sp.png" alt="Logotipo Centro Paula Souza e Governo do Estado de São Paulo" class="h-8 w-auto opacity-80">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main>
+    
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+      <!-- Background Image Overlay with deep mesh gradient -->
+      <div class="absolute inset-0 z-0 bg-cover bg-center opacity-10 dark:opacity-25 transition-opacity duration-300" style="background-image: url('img/hero-tech-bg.png');"></div>
+      <div class="mesh-glow"></div>
+      
+      <!-- Content Container -->
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+        <!-- Card da Data do Evento -->
+        <div class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm md:text-base font-bold bg-cps-red/10 text-cps-red dark:text-cps-red-light border border-cps-red/35 dark:border-cps-red/20 mb-8 uppercase tracking-wider animate-pulse shadow-sm shadow-cps-red/10">
+          <i class="fa-solid fa-calendar-days text-base"></i> 17 de Outubro de 2026
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-white mb-6 transition-colors duration-300">
+          6º Fatec <span class="text-transparent bg-clip-text bg-gradient-to-r from-cps-red via-cps-red-light to-cps-red-dark dark:from-white dark:via-red-200 dark:to-cps-red font-display glow-text-red">DevDay</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="max-w-2xl text-lg sm:text-xl text-zinc-650 dark:text-zinc-300 mb-10 leading-relaxed font-light transition-colors duration-300">
+          O principal polo de inovação, engenharia e tecnologia da Fatec Mogi Mirim. Uma imersão acadêmica e industrial imperdível.
+        </p>
+
+        <!-- Countdown Timer -->
+        <div class="mb-12" id="countdown-wrapper" aria-live="polite">
+          <div class="text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-widest mb-4 font-semibold">O evento começa em</div>
+          <div id="countdown-container" class="flex flex-wrap justify-center gap-4 sm:gap-6">
+            <!-- Days -->
+            <div class="flex flex-col items-center justify-center w-20 h-24 sm:w-24 sm:h-28 rounded-2xl glass-panel border border-zinc-200 dark:border-zinc-800 shadow-md dark:shadow-lg transition-colors">
+              <span id="days" class="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white">00</span>
+              <span class="text-[10px] sm:text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mt-1 font-semibold">Dias</span>
+            </div>
+            <!-- Hours -->
+            <div class="flex flex-col items-center justify-center w-20 h-24 sm:w-24 sm:h-28 rounded-2xl glass-panel border border-zinc-200 dark:border-zinc-800 shadow-md dark:shadow-lg transition-colors">
+              <span id="hours" class="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white">00</span>
+              <span class="text-[10px] sm:text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mt-1 font-semibold">Horas</span>
+            </div>
+            <!-- Minutes -->
+            <div class="flex flex-col items-center justify-center w-20 h-24 sm:w-24 sm:h-28 rounded-2xl glass-panel border border-zinc-200 dark:border-zinc-800 shadow-md dark:shadow-lg transition-colors">
+              <span id="minutes" class="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white">00</span>
+              <span class="text-[10px] sm:text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mt-1 font-semibold">Minutos</span>
+            </div>
+            <!-- Seconds -->
+            <div class="flex flex-col items-center justify-center w-20 h-24 sm:w-24 sm:h-28 rounded-2xl glass-panel border border-cps-red/35 dark:border-cps-red/20 glow-red shadow-md dark:shadow-lg transition-colors">
+              <span id="seconds" class="text-3xl sm:text-4xl font-extrabold text-cps-red dark:text-cps-red-light">00</span>
+              <span class="text-[10px] sm:text-xs text-cps-red dark:text-cps-red-light uppercase tracking-wider mt-1 font-bold">Segundos</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Actions -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md sm:max-w-none">
+          <a href="https://even3.com.br/fatecdevday" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-gradient-to-r from-cps-red to-cps-red-dark hover:from-cps-red-light hover:to-cps-red rounded-xl font-bold text-white text-base shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-cps-red/35 flex items-center justify-center gap-2 animate-pulse-glow" id="cta-even3">
+            <i class="fa-solid fa-ticket"></i> Inscrever-se no Even3
+          </a>
+          <a href="#hackathon" class="px-8 py-4 bg-white hover:bg-zinc-100 dark:bg-zinc-900/60 dark:hover:bg-zinc-850 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 rounded-xl font-bold text-zinc-700 dark:text-zinc-200 text-base shadow-sm transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-laptop-code text-cps-red dark:text-cps-red-light"></i> Ver Hackathon
+          </a>
+        </div>
+      </div>
+      
+      <!-- Sub-Indicator Scroll -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-60 animate-bounce">
+        <span class="text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-400 font-medium">Scroll</span>
+        <i class="fa-solid fa-chevron-down text-xs text-cps-red dark:text-cps-red-light"></i>
+      </div>
+    </section>
+
+    <!-- Programação (Lectures Section) -->
+    <section id="programacao" class="relative py-24 border-t border-zinc-200 dark:border-zinc-900 bg-white dark:bg-zinc-950/40 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <span class="text-cps-red font-semibold uppercase tracking-wider text-sm">Cronograma Técnico</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white mt-1 transition-colors">Palestras Acadêmicas</h2>
+            <p class="text-zinc-600 dark:text-zinc-400 mt-2 max-w-xl transition-colors">
+              Confira a grade de apresentações do período da manhã. Aprimore seus conhecimentos e faça conexões de valor.
+            </p>
+          </div>
+          
+          <!-- Live Search Filter -->
+          <div class="mt-6 md:mt-0 relative w-full md:w-80">
+            <label for="lecture-search" class="sr-only">Buscar palestras</label>
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i class="fa-solid fa-magnifying-glass text-zinc-400 dark:text-zinc-550"></i>
+            </div>
+            <input type="text" id="lecture-search" placeholder="Buscar por palestrante, tema ou curso..." class="w-full pl-10 pr-4 py-2.5 bg-white dark:bg-zinc-900 border border-zinc-350 dark:border-zinc-800 focus:border-cps-red rounded-lg focus:outline-none focus:ring-1 focus:ring-cps-red text-sm placeholder-zinc-450 dark:placeholder-zinc-500 text-zinc-800 dark:text-zinc-200 transition shadow-sm dark:shadow-none">
+          </div>
+        </div>
+
+        <!-- Trilha Switcher Tabs -->
+        <div class="flex border-b border-zinc-200 dark:border-zinc-800 mb-10 overflow-x-auto whitespace-nowrap scrollbar-none">
+          <button id="tab-trilha1" class="tab-btn active px-6 py-3.5 font-display font-semibold text-base text-zinc-600 dark:text-zinc-350 hover:text-zinc-900 dark:hover:text-white border-b-2 border-transparent transition-all mr-6 flex items-center gap-2" aria-selected="true" role="tab">
+            <i class="fa-solid fa-desktop text-cps-red"></i> Trilha 1 <span class="text-xs bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 py-0.5 px-2 rounded-full font-sans">Auditório Bloco A</span>
+          </button>
+          <button id="tab-trilha2" class="tab-btn px-6 py-3.5 font-display font-semibold text-base text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white border-b-2 border-transparent transition-all flex items-center gap-2" aria-selected="false" role="tab">
+            <i class="fa-solid fa-microchip text-cps-red"></i> Trilha 2 <span class="text-xs bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 py-0.5 px-2 rounded-full font-sans">Auditório Bloco B</span>
+          </button>
+        </div>
+
+        <!-- Search Feedback -->
+        <div id="search-feedback" class="hidden text-zinc-500 dark:text-zinc-400 text-center py-10 bg-zinc-100/50 dark:bg-zinc-900/20 border border-dashed border-zinc-200 dark:border-zinc-800 rounded-xl mb-8">
+          Nenhuma palestra encontrada.
+        </div>
+
+        <!-- Track 1 Container (Auditório Bloco A) -->
+        <div id="grid-trilha1" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-300">
+          
+          <!-- Card 1 -->
+          <div class="lecture-card glow-card p-6 flex flex-col justify-between" data-title="IA Generativa no Desenvolvimento de Software" data-speaker="Dra. Aline Mendes" data-courses="ADS, Gestão Empresarial">
+            <div>
+              <div class="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-450 mb-4 border-b border-zinc-200 dark:border-zinc-800 pb-3">
+                <span class="flex items-center gap-1"><i class="fa-regular fa-clock text-cps-red"></i> 09:00 - 09:50</span>
+                <span class="bg-zinc-100 dark:bg-zinc-800 text-zinc-650 dark:text-zinc-300 px-2 py-0.5 rounded">Auditório Bloco A</span>
+              </div>
+              <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-2 hover:text-cps-red dark:hover:text-cps-red-light transition duration-200">IA Generativa no Desenvolvimento de Software: Aliada ou Ameaça?</h3>
+              <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 line-clamp-3">Análise profunda sobre como ferramentas como Copilot e modelos LLM estão mudando o paradigma dos desenvolvedores e da gestão tecnológica nas empresas.</p>
+            </div>
+            
+            <div class="border-t border-zinc-200 dark:border-zinc-850 pt-4 mt-auto">
+              <div class="flex items-center gap-3 mb-4">
+                <!-- Avatar Graphic -->
+                <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-white border border-cps-red/20">
+                  <i class="fa-solid fa-user-tie text-cps-red"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">Dra. Aline Mendes</div>
+                  <div class="text-xs text-zinc-500 dark:text-zinc-500">Tech Lead @ Google</div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[10px] font-semibold bg-cps-red/10 text-cps-red dark:text-cps-red-light px-2 py-0.5 rounded-full border border-cps-red/15">ADS</span>
+                <span class="text-[10px] font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-2 py-0.5 rounded-full">Gestão</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="lecture-card glow-card p-6 flex flex-col justify-between" data-title="Mecatrônica 4.0: Integração de IoT e CLP na Manufatura" data-speaker="Eng. Thiago Silva" data-courses="Mecatrônica Industrial, Engenharia Mecânica, Fabricação Mecânica">
+            <div>
+              <div class="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-450 mb-4 border-b border-zinc-200 dark:border-zinc-800 pb-3">
+                <span class="flex items-center gap-1"><i class="fa-regular fa-clock text-cps-red"></i> 10:00 - 10:50</span>
+                <span class="bg-zinc-100 dark:bg-zinc-800 text-zinc-650 dark:text-zinc-300 px-2 py-0.5 rounded">Auditório Bloco A</span>
+              </div>
+              <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-2 hover:text-cps-red dark:hover:text-cps-red-light transition duration-200">Mecatrônica 4.0: Integração de IoT e CLP na Manufatura Moderna</h3>
+              <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 line-clamp-3">Aprenda a integrar computadores e controladores lógicos programáveis (CLP) à nuvem usando protocolos industriais modernos no ecossistema da Indústria 4.0.</p>
+            </div>
+            
+            <div class="border-t border-zinc-200 dark:border-zinc-850 pt-4 mt-auto">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-white border border-cps-red/20">
+                  <i class="fa-solid fa-robot text-cps-red"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">Eng. Thiago Silva</div>
+                  <div class="text-xs text-zinc-500 dark:text-zinc-500">Sistemas Industriais @ Siemens</div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[10px] font-semibold bg-cps-red/10 text-cps-red dark:text-cps-red-light px-2 py-0.5 rounded-full border border-cps-red/15">Mecatrônica</span>
+                <span class="text-[10px] font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-2 py-0.5 rounded-full">Eng. Mecânica</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="lecture-card glow-card p-6 flex flex-col justify-between" data-title="Arquitetura de Softwares Escaláveis na Nuvem" data-speaker="Lucas Rocha" data-courses="ADS">
+            <div>
+              <div class="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-450 mb-4 border-b border-zinc-200 dark:border-zinc-800 pb-3">
+                <span class="flex items-center gap-1"><i class="fa-regular fa-clock text-cps-red"></i> 11:00 - 11:50</span>
+                <span class="bg-zinc-100 dark:bg-zinc-800 text-zinc-650 dark:text-zinc-300 px-2 py-0.5 rounded">Auditório Bloco A</span>
+              </div>
+              <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-2 hover:text-cps-red dark:hover:text-cps-red-light transition duration-200">Arquitetura de Softwares Escaláveis na Nuvem: AWS e Serverless</h3>
+              <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 line-clamp-3">Casos práticos de desenvolvimento serverless que escalam para milhões de requisições gastando o mínimo com arquitetura sob demanda na nuvem.</p>
+            </div>
+            
+            <div class="border-t border-zinc-200 dark:border-zinc-850 pt-4 mt-auto">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-white border border-cps-red/20">
+                  <i class="fa-solid fa-cloud text-cps-red"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">Lucas Rocha</div>
+                  <div class="text-xs text-zinc-500 dark:text-zinc-500">Cloud Solutions Architect @ AWS</div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[10px] font-semibold bg-cps-red/10 text-cps-red dark:text-cps-red-light px-2 py-0.5 rounded-full border border-cps-red/15">ADS</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Track 2 Container (Auditório Bloco B) - Hidden by default -->
+        <div id="grid-trilha2" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hidden transition-all duration-300">
+          
+          <!-- Card 1 -->
+          <div class="lecture-card glow-card p-6 flex flex-col justify-between" data-title="Projetos de Alta Performance e Manufatura Aditiva" data-speaker="Dra. Carla Souza" data-courses="Projetos Mecânicos, Fabricação Mecânica, Engenharia Mecânica">
+            <div>
+              <div class="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-450 mb-4 border-b border-zinc-200 dark:border-zinc-800 pb-3">
+                <span class="flex items-center gap-1"><i class="fa-regular fa-clock text-cps-red"></i> 09:00 - 09:50</span>
+                <span class="bg-zinc-100 dark:bg-zinc-800 text-zinc-650 dark:text-zinc-300 px-2 py-0.5 rounded">Auditório Bloco B</span>
+              </div>
+              <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-2 hover:text-cps-red dark:hover:text-cps-red-light transition duration-200">Projetos de Alta Performance e Manufatura Aditiva (Impressão 3D Industrial)</h3>
+              <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 line-clamp-3">A revolução da modelagem e criação de protótipos industriais com impressão 3D metálica de altíssima precisão no contexto aeroespacial brasileiro.</p>
+            </div>
+            
+            <div class="border-t border-zinc-200 dark:border-zinc-850 pt-4 mt-auto">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-white border border-cps-red/20">
+                  <i class="fa-solid fa-cubes text-cps-red"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">Dra. Carla Souza</div>
+                  <div class="text-xs text-zinc-550">Coordenadora de R&D @ Embraer</div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[10px] font-semibold bg-cps-red/10 text-cps-red dark:text-cps-red-light px-2 py-0.5 rounded-full border border-cps-red/15">Projetos</span>
+                <span class="text-[10px] font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-2 py-0.5 rounded-full">Fabricação</span>
+                <span class="text-[10px] font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-2 py-0.5 rounded-full">Eng. Mecânica</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="lecture-card glow-card p-6 flex flex-col justify-between" data-title="Gestão Ágil em Projetos de Engenharia" data-speaker="Marcelo Nogueira" data-courses="Gestão Empresarial, ADS">
+            <div>
+              <div class="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-450 mb-4 border-b border-zinc-200 dark:border-zinc-800 pb-3">
+                <span class="flex items-center gap-1"><i class="fa-regular fa-clock text-cps-red"></i> 10:00 - 10:50</span>
+                <span class="bg-zinc-100 dark:bg-zinc-800 text-zinc-650 dark:text-zinc-300 px-2 py-0.5 rounded">Auditório Bloco B</span>
+              </div>
+              <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-2 hover:text-cps-red dark:hover:text-cps-red-light transition duration-200">Gestão Ágil em Projetos de Engenharia e Tecnologia</h3>
+              <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 line-clamp-3">Como metodologias ágeis como Scrum, Kanban e OKRs transformaram as linhas de montagem industriais e o ritmo de entrega de softwares complexos.</p>
+            </div>
+            
+            <div class="border-t border-zinc-200 dark:border-zinc-850 pt-4 mt-auto">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-white border border-cps-red/20">
+                  <i class="fa-solid fa-chart-line text-cps-red"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">Marcelo Nogueira</div>
+                  <div class="text-xs text-zinc-550">Agile Coach @ Mercado Livre</div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[10px] font-semibold bg-cps-red/10 text-cps-red dark:text-cps-red-light px-2 py-0.5 rounded-full border border-cps-red/15">Gestão</span>
+                <span class="text-[10px] font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-2 py-0.5 rounded-full">ADS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="lecture-card glow-card p-6 flex flex-col justify-between" data-title="O Futuro dos Veículos Autônomos e Elétricos" data-speaker="Eng. Roberta Lima" data-courses="Mecatrônica Industrial, Engenharia Mecânica, Projetos Mecânicos">
+            <div>
+              <div class="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-450 mb-4 border-b border-zinc-200 dark:border-zinc-800 pb-3">
+                <span class="flex items-center gap-1"><i class="fa-regular fa-clock text-cps-red"></i> 11:00 - 11:50</span>
+                <span class="bg-zinc-100 dark:bg-zinc-800 text-zinc-650 dark:text-zinc-300 px-2 py-0.5 rounded">Auditório Bloco B</span>
+              </div>
+              <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-2 hover:text-cps-red dark:hover:text-cps-red-light transition duration-200">O Futuro dos Veículos Autônomos e Elétricos no Brasil</h3>
+              <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 line-clamp-3">Estudo de caso e tendências globais para a eletrificação do transporte público e de carga no Brasil, focando em baterias e sistemas integrados de computação.</p>
+            </div>
+            
+            <div class="border-t border-zinc-200 dark:border-zinc-850 pt-4 mt-auto">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-white border border-cps-red/20">
+                  <i class="fa-solid fa-car-battery text-cps-red"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">Eng. Roberta Lima</div>
+                  <div class="text-xs text-zinc-550">Diretora de Inovação @ Stellantis</div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="text-[10px] font-semibold bg-cps-red/10 text-cps-red dark:text-cps-red-light px-2 py-0.5 rounded-full border border-cps-red/15">Mecatrônica</span>
+                <span class="text-[10px] font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-2 py-0.5 rounded-full">Eng. Mecânica</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Hackathon Section -->
+    <section id="hackathon" class="relative py-24 bg-gradient-to-b from-transparent to-zinc-100/50 dark:from-cps-dark dark:to-[#0f0f13] transition-all duration-300 overflow-hidden">
+      <!-- Background elements for Hackathon -->
+      <div class="absolute right-0 top-1/4 w-96 h-96 bg-cps-red/5 rounded-full blur-[100px] pointer-events-none"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-cps-red font-semibold uppercase tracking-wider text-sm flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-bolt text-xs"></i> Desafio & Maratona de Soluções
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-zinc-900 dark:text-white mt-2 transition-colors">Hackathon DevDay 2026</h2>
+          <p class="text-zinc-650 dark:text-zinc-400 mt-4 leading-relaxed transition-colors">
+            Desenvolva soluções práticas reais ao longo do sábado (17/10) em parceria com a gigante de tecnologia <strong class="text-zinc-900 dark:text-white font-bold">InnovaTech Solutions</strong>. Integre tecnologia e engenharia para vencer!
+          </p>
+        </div>
+
+        <!-- Content Grid: Box + Timeline -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Left: Hackathon Detail Block -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 glow-red">
+              <div class="flex items-center gap-4 mb-6">
+                <img src="./assets/logo-parceiro.png" alt="Empresa de TI Parceira" class="h-12 w-auto grayscale hover:grayscale-0 transition-all">
+                <div>
+                  <h3 class="text-lg font-bold text-zinc-800 dark:text-white transition-colors">Parceria Exclusiva</h3>
+                  <div class="text-sm text-zinc-500 dark:text-zinc-450">InnovaTech Solutions & Fatec</div>
+                </div>
+              </div>
+              
+              <!-- Image Banner generated inside the block -->
+              <div class="relative w-full h-44 rounded-xl overflow-hidden mb-6 border border-zinc-200 dark:border-zinc-800 shadow-sm">
+                <img src="img/hackathon-banner.png" alt="Ilustração do Hackathon com equipes codificando e robótica" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-cps-dark via-transparent to-transparent"></div>
+              </div>
+
+              <h4 class="text-base font-bold text-zinc-800 dark:text-zinc-200 mb-2 transition-colors">Tema do Desafio:</h4>
+              <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 leading-relaxed">
+                "Cidades Inteligentes e Indústria 4.0: Otimização de processos urbanos e industriais com sistemas inteligentes integrados". O regulamento oficial de premiação (com prêmios de até R$ 5.000 em dinheiro + contratação imediata) será enviado aos inscritos na data de abertura.
+              </p>
+
+              <div class="space-y-3.5 mb-6 text-sm text-zinc-700 dark:text-zinc-300">
+                <div class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-users text-cps-red dark:text-cps-red-light mt-1 w-5"></i>
+                  <span>Equipes multidisciplinares de 2 a 5 alunos de qualquer curso da Fatec.</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-microchip text-cps-red dark:text-cps-red-light mt-1 w-5"></i>
+                  <span>Protótipos de software (aplicativos, IoT, scripts) ou físicos.</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="fa-solid fa-trophy text-cps-red dark:text-cps-red-light mt-1 w-5"></i>
+                  <span>Premiação em dinheiro para os 3 melhores colocados + vagas de estágio na InnovaTech.</span>
+                </div>
+              </div>
+
+              <!-- Buttons inside card -->
+              <div class="flex flex-col gap-3">
+                <a href="https://even3.com.br/fatecdevday-hackathon" target="_blank" rel="noopener noreferrer" class="w-full py-3 bg-cps-red hover:bg-cps-red-light text-white text-center rounded-xl font-bold transition flex items-center justify-center gap-2" id="hackathon-register-btn">
+                  <i class="fa-solid fa-signature"></i> Inscrever Equipe no Hackathon
+                </a>
+                <a href="#regulamento-pdf" class="w-full py-3 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-350 hover:bg-zinc-200 dark:hover:bg-zinc-850 hover:text-zinc-900 dark:hover:text-white text-center rounded-xl font-medium text-sm transition flex items-center justify-center gap-2">
+                  <i class="fa-regular fa-file-pdf"></i> Baixar Regulamento Completo (PDF)
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Horizontal/Vertical Timeline -->
+          <div class="lg:col-span-7 relative pl-8 md:pl-0">
+            <!-- Central Line (Left on mobile, center on md+) -->
+            <div class="timeline-line"></div>
+            
+            <div class="space-y-12">
+              
+              <!-- Step 1 -->
+              <div class="timeline-item relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                <div class="timeline-dot"></div>
+                <div class="w-full md:w-[45%] md:text-right md:pr-8">
+                  <span class="inline-block text-xs font-bold text-cps-red dark:text-cps-red-light bg-cps-red/10 px-2 py-0.5 rounded border border-cps-red/20 mb-2">08:30 - 09:30</span>
+                  <h4 class="text-lg font-bold text-zinc-900 dark:text-white transition-colors">Credenciamento & Networking</h4>
+                </div>
+                <div class="hidden md:block w-4 h-4 bg-cps-red rounded-full opacity-0"></div> <!-- Placeholder alignment -->
+                <div class="w-full md:w-[45%] md:pl-8 mt-2 md:mt-0">
+                  <p class="text-sm text-zinc-600 dark:text-zinc-400">Chegada das equipes, validação de inscrições e café da manhã de boas-vindas no Laboratório Central.</p>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="timeline-item relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                <div class="timeline-dot"></div>
+                <div class="w-full md:w-[45%] order-1 md:order-3 md:pl-8">
+                  <span class="inline-block text-xs font-bold text-cps-red dark:text-cps-red-light bg-cps-red/10 px-2 py-0.5 rounded border border-cps-red/20 mb-2">09:30 - 10:00</span>
+                  <h4 class="text-lg font-bold text-zinc-900 dark:text-white transition-colors">Lançamento do Briefing Oficial</h4>
+                </div>
+                <div class="hidden md:block w-4 h-4 bg-cps-red rounded-full opacity-0"></div>
+                <div class="w-full md:w-[45%] order-2 md:order-1 md:text-right md:pr-8 mt-2 md:mt-0">
+                  <p class="text-sm text-zinc-600 dark:text-zinc-400">Divulgação detalhada da API da InnovaTech, regras específicas de validação técnica e alocação de mentores.</p>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="timeline-item relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                <div class="timeline-dot"></div>
+                <div class="w-full md:w-[45%] md:text-right md:pr-8">
+                  <span class="inline-block text-xs font-bold text-cps-red dark:text-cps-red-light bg-cps-red/10 px-2 py-0.5 rounded border border-cps-red/20 mb-2">10:00 - 13:00</span>
+                  <h4 class="text-lg font-bold text-zinc-900 dark:text-white transition-colors">Mãos na Massa & Mentoria I</h4>
+                </div>
+                <div class="hidden md:block w-4 h-4 bg-cps-red rounded-full opacity-0"></div>
+                <div class="w-full md:w-[45%] md:pl-8 mt-2 md:mt-0">
+                  <p class="text-sm text-zinc-600 dark:text-zinc-400">Início da codificação e modelagem. Engenheiros seniores passam nas mesas fornecendo feedbacks e suporte.</p>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="timeline-item relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                <div class="timeline-dot"></div>
+                <div class="w-full md:w-[45%] order-1 md:order-3 md:pl-8">
+                  <span class="inline-block text-xs font-bold text-cps-red dark:text-cps-red-light bg-cps-red/10 px-2 py-0.5 rounded border border-cps-red/20 mb-2">13:00 - 16:30</span>
+                  <h4 class="text-lg font-bold text-zinc-900 dark:text-white transition-colors">Desenvolvimento & Mentoria II</h4>
+                </div>
+                <div class="hidden md:block w-4 h-4 bg-cps-red rounded-full opacity-0"></div>
+                <div class="w-full md:w-[45%] order-2 md:order-1 md:text-right md:pr-8 mt-2 md:mt-0">
+                  <p class="text-sm text-zinc-600 dark:text-zinc-400">Mentoria focada na viabilidade de mercado do projeto e validação do pitch de apresentação de negócios.</p>
+                </div>
+              </div>
+
+              <!-- Step 5 -->
+              <div class="timeline-item relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                <div class="timeline-dot"></div>
+                <div class="w-full md:w-[45%] md:text-right md:pr-8">
+                  <span class="inline-block text-xs font-bold text-cps-red dark:text-cps-red-light bg-cps-red/10 px-2 py-0.5 rounded border border-cps-red/20 mb-2">16:30 - 17:00</span>
+                  <h4 class="text-lg font-bold text-zinc-900 dark:text-white transition-colors">Submissão da Solução Final</h4>
+                </div>
+                <div class="hidden md:block w-4 h-4 bg-cps-red rounded-full opacity-0"></div>
+                <div class="w-full md:w-[45%] md:pl-8 mt-2 md:mt-0">
+                  <p class="text-sm text-zinc-600 dark:text-zinc-400">Congelamento de código e envio dos repositórios GitHub para a comissão de jurados. Preparação dos slides.</p>
+                </div>
+              </div>
+
+              <!-- Step 6 -->
+              <div class="timeline-item relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                <div class="timeline-dot"></div>
+                <div class="w-full md:w-[45%] order-1 md:order-3 md:pl-8">
+                  <span class="inline-block text-xs font-bold text-cps-red dark:text-cps-red-light bg-cps-red/10 px-2 py-0.5 rounded border border-cps-red/20 mb-2">17:00 - 18:00</span>
+                  <h4 class="text-lg font-bold text-zinc-900 dark:text-white transition-colors">Apresentações dos Pitches</h4>
+                </div>
+                <div class="hidden md:block w-4 h-4 bg-cps-red rounded-full opacity-0"></div>
+                <div class="w-full md:w-[45%] order-2 md:order-1 md:text-right md:pr-8 mt-2 md:mt-0">
+                  <p class="text-sm text-zinc-600 dark:text-zinc-400">Pitches de 3 minutos no Auditório Principal para a comissão avaliadora de empresários e professores.</p>
+                </div>
+              </div>
+
+              <!-- Step 7 -->
+              <div class="timeline-item relative flex flex-col md:flex-row md:justify-between items-start md:items-center">
+                <div class="timeline-dot"></div>
+                <div class="w-full md:w-[45%] md:text-right md:pr-8">
+                  <span class="inline-block text-xs font-bold text-cps-red dark:text-cps-red-light bg-cps-red/10 px-2 py-0.5 rounded border border-cps-red/20 mb-2">18:00 - 18:30</span>
+                  <h4 class="text-lg font-bold text-zinc-900 dark:text-white transition-colors">Premiação & Encerramento</h4>
+                </div>
+                <div class="hidden md:block w-4 h-4 bg-cps-red rounded-full opacity-0"></div>
+                <div class="w-full md:w-[45%] md:pl-8 mt-2 md:mt-0">
+                  <p class="text-sm text-zinc-600 dark:text-zinc-400">Entrega de troféus, certificados de participação e premiações em dinheiro no palco principal do DevDay.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="relative py-24 border-t border-zinc-200 dark:border-zinc-900 bg-white dark:bg-zinc-950/20 transition-colors">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Grid layout for Description and Cursos -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left: About Text -->
+          <div class="lg:col-span-5 space-y-6">
+            <span class="text-cps-red font-semibold uppercase tracking-wider text-sm">Quem Somos</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white transition-colors">Sobre a Fatec Mogi Mirim</h2>
+            <p class="text-zinc-600 dark:text-zinc-300 leading-relaxed text-base transition-colors">
+              A Faculdade de Tecnologia Arthur de Azevedo (Fatec Mogi Mirim) é reconhecida pela excelência no ensino público superior de tecnologia no interior paulista. O <strong class="text-zinc-900 dark:text-white font-bold">DevDay</strong> surge como uma ponte anual vital entre as demandas de mercado e o potencial acadêmico dos nossos estudantes.
+            </p>
+            <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed transition-colors">
+              Unimos as áreas de engenharia, sistemas, manufatura, projetos e administração para promover o compartilhamento científico, a experimentação em laboratório e a geração de novas ideias aplicáveis ao mercado global.
+            </p>
+            <div class="pt-4 flex gap-6">
+              <div>
+                <div class="text-3xl font-extrabold text-zinc-900 dark:text-white transition-colors">6ª</div>
+                <div class="text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-widest font-semibold mt-1">Edição do Evento</div>
+              </div>
+              <div class="border-l border-zinc-200 dark:border-zinc-800 pl-6">
+                <div class="text-3xl font-extrabold text-zinc-900 dark:text-white transition-colors">600+</div>
+                <div class="text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-widest font-semibold mt-1">Alunos e Visitantes</div>
+              </div>
+              <div class="border-l border-zinc-200 dark:border-zinc-800 pl-6">
+                <div class="text-3xl font-extrabold text-zinc-900 dark:text-white transition-colors">100%</div>
+                <div class="text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-widest font-semibold mt-1">Gratuito & Público</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Course cards grid -->
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <!-- ADS Card -->
+            <div class="p-5 rounded-xl border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-cps-card hover:border-zinc-400 dark:hover:border-zinc-700 shadow-sm dark:shadow-none transition-all">
+              <i class="fa-solid fa-code text-2xl text-cps-red mb-3"></i>
+              <h3 class="text-base font-bold text-zinc-850 dark:text-white mb-1.5 transition-colors">Análise e Des. de Sistemas (ADS)</h3>
+              <p class="text-xs text-zinc-600 dark:text-zinc-400">Desenvolvimento de soluções web, mobile e DevOps com foco em performance e segurança.</p>
+            </div>
+
+            <!-- Mecatrônica & Engenharia Card -->
+            <div class="p-5 rounded-xl border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-cps-card hover:border-zinc-400 dark:hover:border-zinc-700 shadow-sm dark:shadow-none transition-all">
+              <i class="fa-solid fa-gears text-2xl text-cps-red mb-3"></i>
+              <h3 class="text-base font-bold text-zinc-850 dark:text-white mb-1.5 transition-colors">Mecatrônica & Eng. Mecânica</h3>
+              <p class="text-xs text-zinc-600 dark:text-zinc-400">Automação de processos industriais, CLP, sistemas embarcados e desenvolvimento termodinâmico.</p>
+            </div>
+
+            <!-- Fabricação & Projetos Card -->
+            <div class="p-5 rounded-xl border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-cps-card hover:border-zinc-400 dark:hover:border-zinc-700 shadow-sm dark:shadow-none transition-all">
+              <i class="fa-solid fa-cubes-stack text-2xl text-cps-red mb-3"></i>
+              <h3 class="text-base font-bold text-zinc-850 dark:text-white mb-1.5 transition-colors">Projetos & Fab. Mecânica</h3>
+              <p class="text-xs text-zinc-600 dark:text-zinc-400">Modelagem CAD/CAM 3D, controle dimensional e desenvolvimento de processos de fabricação inteligentes.</p>
+            </div>
+
+            <!-- Gestão Card -->
+            <div class="p-5 rounded-xl border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-cps-card hover:border-zinc-400 dark:hover:border-zinc-700 shadow-sm dark:shadow-none transition-all">
+              <i class="fa-solid fa-chart-line text-2xl text-cps-red mb-3"></i>
+              <h3 class="text-base font-bold text-zinc-850 dark:text-white mb-1.5 transition-colors">Gestão Empresarial</h3>
+              <p class="text-xs text-zinc-600 dark:text-zinc-400">Administração de tecnologia de ponta, processos ágeis, gestão estratégica e startups inovadoras.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contato e Localização Section -->
+    <section id="contato" class="relative py-24 border-t border-zinc-200 dark:border-zinc-900 bg-gradient-to-b from-white to-zinc-50 dark:from-[#0f0f13] dark:to-cps-dark transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Left: Contact Details -->
+          <div class="lg:col-span-5 space-y-6">
+            <span class="text-cps-red font-semibold uppercase tracking-wider text-sm">Fale Conosco</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white transition-colors">Como nos Encontrar?</h2>
+            <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm transition-colors">
+              Tem alguma dúvida sobre as inscrições, submissão de projetos do Hackathon ou deseja ser um patrocinador do evento? Entre em contato com a equipe organizadora.
+            </p>
+
+            <address class="not-italic space-y-4 text-sm text-zinc-700 dark:text-zinc-300 transition-colors">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-location-dot text-cps-red mt-1 w-5"></i>
+                <div>
+                  <div class="font-semibold text-zinc-800 dark:text-zinc-200">Fatec Mogi Mirim Arthur de Azevedo</div>
+                  <div class="text-zinc-600 dark:text-zinc-450 text-xs">Rua Ariovaldo Silveira Franco, 237 - Jardim 31 de Março, Mogi Mirim - SP, 13801-005</div>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-envelope text-cps-red mt-1 w-5"></i>
+                <div>
+                  <div class="font-semibold text-zinc-800 dark:text-zinc-200">Comissão de Organização</div>
+                  <a href="mailto:devday.mogimirim@fatec.sp.gov.br" class="text-cps-red hover:underline text-xs">devday.mogimirim@fatec.sp.gov.br</a>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-phone text-cps-red mt-1 w-5"></i>
+                <div>
+                  <div class="font-semibold text-zinc-800 dark:text-zinc-200">Secretaria Acadêmica</div>
+                  <div class="text-zinc-600 dark:text-zinc-450 text-xs">(19) 3806-3130 | (19) 3806-3023</div>
+                </div>
+              </div>
+            </address>
+
+            <!-- Social Links -->
+            <div class="flex gap-4">
+              <a href="https://instagram.com/fatecmogimirim" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-900 hover:bg-cps-red dark:hover:bg-cps-red hover:text-white dark:hover:text-white transition flex items-center justify-center border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:border-transparent" aria-label="Instagram Fatec Mogi Mirim">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://facebook.com/fatecmogimirim" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-900 hover:bg-cps-red dark:hover:bg-cps-red hover:text-white dark:hover:text-white transition flex items-center justify-center border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:border-transparent" aria-label="Facebook Fatec Mogi Mirim">
+                <i class="fa-brands fa-facebook-f text-sm"></i>
+              </a>
+              <a href="https://github.com/fatecmogimirim" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-900 hover:bg-cps-red dark:hover:bg-cps-red hover:text-white dark:hover:text-white transition flex items-center justify-center border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:border-transparent" aria-label="GitHub Fatec Mogi Mirim">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Map Container styled dark -->
+          <div class="lg:col-span-7">
+            <div class="w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-lg relative glass-panel">
+              <!-- Dark/Light styled Google Maps Embed -->
+              <iframe 
+                src="https://maps.google.com/maps?q=Rua%20Ariovaldo%20Silveira%20Franco,%20237,%20Mogi%20Mirim,%20SP,%20Brasil&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                class="w-full h-full border-0 absolute inset-0 opacity-80 theme-map"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Localização da Fatec Mogi Mirim no Google Maps"
+              ></iframe>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-cps-dark border-t border-zinc-250 dark:border-zinc-900 py-12 text-sm text-zinc-550 dark:text-zinc-500 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8 pb-8 border-b border-zinc-200 dark:border-zinc-900">
+        
+        <!-- Institutional Logo integration -->
+        <div class="flex flex-col sm:flex-row items-center gap-6">
+          <img src="./assets/logo-fatec-mogimirim.png" alt="Logotipo Fatec Mogi Mirim" class="h-12 w-auto">
+          <img src="./assets/logo-cps-governo-sp.png" alt="Logotipo Centro Paula Souza e Governo do Estado de São Paulo" class="h-12 w-auto">
+        </div>
+
+        <!-- Links Úteis -->
+        <div class="flex flex-wrap justify-center gap-6 font-medium text-zinc-600 dark:text-zinc-400">
+          <a href="https://fatecmogimirim.cps.sp.gov.br/" target="_blank" rel="noopener noreferrer" class="hover:text-cps-red dark:hover:text-white transition">Site Institucional</a>
+          <a href="https://siga.cps.sp.gov.br/aluno" target="_blank" rel="noopener noreferrer" class="hover:text-cps-red dark:hover:text-white transition">SIGA Alunos</a>
+          <a href="https://even3.com.br/fatecdevday" target="_blank" rel="noopener noreferrer" class="hover:text-cps-red dark:hover:text-white transition">Even3 Cadastro</a>
+          <a href="#regulamento-pdf" class="hover:text-cps-red dark:hover:text-white transition">Ficha do Hackathon</a>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between pt-8 gap-4 text-center md:text-left text-xs">
+        <p>&copy; 2026 Fatec Arthur de Azevedo (Mogi Mirim). Todos os direitos reservados.</p>
+        <p class="flex items-center gap-1.5 justify-center">
+          Feito com <i class="fa-solid fa-heart text-cps-red dark:text-cps-red-light"></i> para a comunidade de tecnologia e engenharia.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
