@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (mobileMenuBtn && mobileMenu) {
     const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-    
+
     mobileMenuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
       const path1 = mobileMenuBtn.querySelector('path:first-child');
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 2. Countdown Timer (Fuso Horário de Brasília / São Paulo: UTC-3)
-  const eventDate = Date.UTC(2026, 9, 17, 11, 0, 0);
+  const eventDate = Date.UTC(2026, 10, 7, 11, 0, 0);
   const countdownContainer = document.getElementById('countdown-container');
 
   if (countdownContainer) {
@@ -192,5 +192,120 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
   if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+
+  // 7. Lecture Details Modal Handler
+  const modal = document.getElementById('lecture-modal');
+  const modalContainer = document.getElementById('lecture-modal-container');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+  const modalCloseFooter = document.getElementById('modal-close-footer');
+
+  if (modal) {
+    const modalTitle = document.getElementById('modal-title');
+    const modalTimeSlot = document.getElementById('modal-time-slot');
+    const modalLocation = document.getElementById('modal-location');
+    const modalSpeakerName = document.getElementById('modal-speaker-name');
+    const modalSpeakerRole = document.getElementById('modal-speaker-role');
+    const modalSpeakerLinkedin = document.getElementById('modal-speaker-linkedin');
+    const modalFullTeaser = document.getElementById('modal-full-teaser');
+    const modalBioContainer = document.getElementById('modal-bio-container');
+    const modalSpeakerBio = document.getElementById('modal-speaker-bio');
+    const modalFormat = document.getElementById('modal-format');
+    const modalTags = document.getElementById('modal-tags');
+
+    const openModal = (card) => {
+      const title = card.getAttribute('data-title') || card.querySelector('h3')?.innerText || '';
+      const speaker = card.getAttribute('data-speaker') || card.querySelector('.font-semibold')?.innerText || '';
+      const role = card.querySelector('.text-xs.text-zinc-500')?.innerText || '';
+      const timeSlot = card.querySelector('.fa-clock')?.parentElement?.innerText?.trim() || '';
+      const location = card.querySelector('.bg-zinc-100')?.innerText?.trim() || 'Auditório';
+      const teaser = card.getAttribute('data-full-teaser') || card.querySelector('p')?.innerText || '';
+      const bio = card.getAttribute('data-bio') || '';
+      const linkedin = card.getAttribute('data-linkedin') || card.querySelector('a[title*="LinkedIn"]')?.href || '';
+      const format = card.getAttribute('data-format') || 'Palestra Individual';
+      const courses = card.getAttribute('data-courses') || '';
+
+      if (modalTitle) modalTitle.innerText = title;
+      if (modalTimeSlot) modalTimeSlot.innerText = timeSlot;
+      if (modalLocation) modalLocation.innerText = location;
+      if (modalSpeakerName) modalSpeakerName.innerText = speaker;
+      if (modalSpeakerRole) modalSpeakerRole.innerText = role;
+      if (modalFullTeaser) modalFullTeaser.innerText = teaser;
+      if (modalFormat) modalFormat.innerText = format;
+
+      if (modalSpeakerLinkedin) {
+        if (linkedin) {
+          modalSpeakerLinkedin.href = linkedin;
+          modalSpeakerLinkedin.classList.remove('hidden');
+          modalSpeakerLinkedin.classList.add('flex');
+        } else {
+          modalSpeakerLinkedin.classList.add('hidden');
+          modalSpeakerLinkedin.classList.remove('flex');
+        }
+      }
+
+      if (modalBioContainer && modalSpeakerBio) {
+        if (bio) {
+          modalSpeakerBio.innerText = bio;
+          modalBioContainer.classList.remove('hidden');
+        } else {
+          modalBioContainer.classList.add('hidden');
+        }
+      }
+
+      if (modalTags) {
+        modalTags.innerHTML = '';
+        if (courses) {
+          courses.split(',').forEach(tag => {
+            const span = document.createElement('span');
+            span.className = 'text-[10px] font-semibold bg-cps-red/10 text-cps-red dark:text-cps-red-light px-2 py-0.5 rounded-full border border-cps-red/15';
+            span.innerText = tag.trim();
+            modalTags.appendChild(span);
+          });
+        }
+      }
+
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        if (modalContainer) {
+          modalContainer.classList.remove('scale-95');
+          modalContainer.classList.add('scale-100');
+        }
+      }, 10);
+      document.body.classList.add('overflow-hidden');
+    };
+
+    const closeModal = () => {
+      modal.classList.add('opacity-0');
+      if (modalContainer) {
+        modalContainer.classList.remove('scale-100');
+        modalContainer.classList.add('scale-95');
+      }
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }, 300);
+    };
+
+    document.querySelectorAll('.lecture-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+        openModal(card);
+      });
+    });
+
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    if (modalCloseFooter) modalCloseFooter.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  }
 });
 
