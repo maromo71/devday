@@ -532,12 +532,25 @@
         <div id="grid-trilha2"
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hidden transition-all duration-300">
 
-          <!-- Horário disponível -->
-          <div class="lecture-card glow-card p-6 flex flex-col justify-between" data-title="Horário disponível"
-            data-speaker="A definir" data-courses="Engenharia Mecânica, Mecatrônica, Engenharia"
-            data-format="Horário disponível"
-            data-bio="Este horário permanece disponível para definição de uma nova palestra."
-            data-full-teaser="Horário reservado para futura palestra do eixo de Engenharia e Tecnologia Mecânica e Mecatrônica.">
+          <!-- Veículos Autônomos -->
+          <div
+            class="lecture-card glow-card p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-1"
+            data-title="Projetando Veículos Autônomos: do Machine Learning ao Controle Adaptativo Embarcado"
+            data-speaker="Prof. Dr. Mauricio Acconcia Dias"
+            data-courses="Engenharia Mecânica, Mecatrônica, Inteligência Artificial, Machine Learning, Sistemas Embarcados, Robótica Móvel, Controle Adaptativo"
+            data-format="Palestra Individual"
+            data-bio="Prof. Dr. Mauricio Acconcia Dias é docente do Centro Universitário da FHO, atuando nos cursos de Engenharia e como pesquisador nos grupos FHO-SIVA (Sistemas Inteligentes e Veículos Autônomos) e FHOBots. Possui Doutorado e Mestrado em Ciências de Computação e Matemática Computacional pelo ICMC/USP, pós-doutorado pela Unicamp, com vasta experiência em sistemas embarcados, inteligência artificial, visão computacional e mobilidade autônoma."
+            data-full-teaser="Como parte da programação do 6º Fatec DevDay | 1º Fatecom, a palestra conecta Inteligência Artificial, Engenharia Mecânica, Controle e Sistemas Embarcados.
+
+A apresentação traz uma visão sobre os desafios e as tecnologias envolvidas no desenvolvimento de veículos autônomos. A abordagem parte da aplicação de Machine Learning na percepção do ambiente e na tomada de decisões e avança até o desenvolvimento de controladores adaptativos para implementação embarcada.
+
+Entre os temas abordados estarão:
+• Machine Learning aplicado à percepção e tomada de decisão
+• Controle adaptativo para veículos autônomos
+• Sistemas embarcados e desafios de implementação
+• Robótica móvel e sistemas dinâmicos
+• Aplicações de Inteligência Artificial em veículos
+• Perspectivas para o futuro da mobilidade autônoma">
             <div>
               <div
                 class="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-450 mb-4 border-b border-zinc-200 dark:border-zinc-800 pb-3">
@@ -547,29 +560,39 @@
                   class="bg-zinc-100 dark:bg-zinc-800 text-zinc-650 dark:text-zinc-300 px-2 py-0.5 rounded">Auditório
                   Bloco B</span>
               </div>
-              <h3 class="text-xl font-bold text-zinc-900 dark:text-white mb-2">
-                Horário disponível
+              <h3
+                class="text-xl font-bold text-zinc-900 dark:text-white mb-2 hover:text-cps-red dark:hover:text-cps-red-light transition duration-200">
+                Projetando Veículos Autônomos: do Machine Learning ao Controle Adaptativo Embarcado
               </h3>
-              <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 leading-relaxed">
-                Espaço reservado para definição de palestra do eixo de Engenharia e Tecnologia Mecânica e Mecatrônica.
+              <p class="text-zinc-600 dark:text-zinc-400 text-sm mb-6 line-clamp-4">
+                Desafios e tecnologias no desenvolvimento de veículos autônomos, da aplicação de Machine Learning na percepção e tomada de decisão aos controladores adaptativos embarcados.
               </p>
             </div>
             <div class="border-t border-zinc-200 dark:border-zinc-850 pt-4 mt-auto">
               <div class="flex items-center gap-3 mb-4">
                 <div
-                  class="w-10 h-10 rounded-full bg-cps-red/10 dark:bg-zinc-800 flex items-center justify-center text-cps-red border border-cps-red/20">
-                  <i class="fa-regular fa-calendar-plus"></i>
+                  class="w-10 h-10 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-700 dark:text-white border border-cps-red/20">
+                  <i class="fa-solid fa-car-side text-cps-red"></i>
                 </div>
                 <div>
-                  <div class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">A definir</div>
-                  <div class="text-xs text-zinc-500 dark:text-zinc-500">Palestra em programação</div>
+                  <div class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">Prof. Dr. Mauricio Acconcia Dias
+                  </div>
+                  <div class="text-xs text-zinc-500 dark:text-zinc-500">Docente | FHO</div>
                 </div>
               </div>
               <div class="flex flex-wrap gap-1.5">
                 <span
-                  class="text-[10px] font-semibold bg-cps-red/10 text-cps-red dark:text-cps-red-light px-2 py-0.5 rounded-full border border-cps-red/15">Disponível</span>
+                  class="text-[10px] font-semibold bg-cps-red/10 text-cps-red dark:text-cps-red-light px-2 py-0.5 rounded-full border border-cps-red/15">Veículos
+                  Autônomos</span>
                 <span
-                  class="text-[10px] font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-2 py-0.5 rounded-full">Engenharia</span>
+                  class="text-[10px] font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-2 py-0.5 rounded-full">Machine
+                  Learning</span>
+                <span
+                  class="text-[10px] font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-2 py-0.5 rounded-full">Controle
+                  Adaptativo</span>
+                <span
+                  class="text-[10px] font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 px-2 py-0.5 rounded-full">Sistemas
+                  Embarcados</span>
               </div>
             </div>
           </div>
@@ -974,7 +997,7 @@
 
         <!-- Speaker Bio Container -->
         <div id="modal-bio-container" class="hidden">
-          <h5 class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-2">Mini Bio da
+          <h5 class="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-2">Mini Bio do(a)
             Palestrante</h5>
           <p id="modal-speaker-bio"
             class="text-zinc-650 dark:text-zinc-400 text-sm leading-relaxed italic bg-zinc-50 dark:bg-zinc-900/40 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800/80">
